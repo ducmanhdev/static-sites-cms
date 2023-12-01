@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "prettier/prettier": "off",
+    "camelcase": "warn",
+    "no-async-promise-executor": "off"
+  }
+}

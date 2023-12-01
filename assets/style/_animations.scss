@@ -1,0 +1,19 @@
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-leave-active {
+  position: absolute;
+}
+
+.slide-to-left-enter-active,
+.slide-to-left-leave-active {
+  transition: all 0.5s ease;
+}
+
+.slide-to-left-enter-from,
+.slide-to-left-leave-to {
+  transform: translateX(100%);
+}

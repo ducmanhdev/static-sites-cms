@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+}
+
+@layer components {
+    .main-title {
+        @apply text-4xl font-bold mb-6;
+    }
+    .sub-title {
+        @apply text-2xl font-bold mb-4;
+    }
+
+    .content {
+        @apply prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-base md:prose-lg prose-h1:no-underline prose-zinc dark:prose-invert prose-img:rounded-lg;
+    }
+}
+
+@layer utilities {
+
+}

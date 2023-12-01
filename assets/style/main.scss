@@ -1,0 +1,19 @@
+@use 'variables';
+@use 'animations';
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+*,
+::before,
+::after {
+  @apply dark:border-gray-800;
+}
+
+html {
+  font-family: 'Sora', sans-serif;
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+.break-word {
+  word-break: break-word;
+}
