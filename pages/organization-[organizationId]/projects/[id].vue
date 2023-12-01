@@ -23,7 +23,7 @@
             <UButton icon="i-mdi-chevron-down" variant="ghost" size="xl" color="black" @click="handleToggleMenu"/>
           </div>
           <div
-              class="p-6 hidden lg:block divide-y dark:divide-gray-700"
+              class="p-6 hidden lg:block"
               :class="{
               '!block': isMenuVisible,
             }"
@@ -31,7 +31,7 @@
             <div class="pb-6 hidden lg:block">
               <h2 class="text-2xl font-bold text-center">{{ projectInfo?.name || 'N/A' }}</h2>
             </div>
-            <div class="pb-6 lg:pt-6 space-y-2">
+            <div class="pb-6 lg:pt-6 space-y-2 lg:border-t dark:border-gray-700">
               <UButton variant="link" block :to="projectInfo?.domain_stable" target="_blank" external>
                 Live site preview
                 <template #trailing>
@@ -39,7 +39,7 @@
                 </template>
               </UButton>
             </div>
-            <div class="py-6">
+            <div class="py-6 border-t dark:border-gray-700">
               <UVerticalNavigation
                   :links="links"
                   :ui="{
