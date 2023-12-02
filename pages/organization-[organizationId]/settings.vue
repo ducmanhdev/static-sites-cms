@@ -10,11 +10,18 @@
 <script setup lang="ts">
 definePageMeta({
   nonLayoutPadding: true,
-  redirect: () => {
-    return {
-      name: 'organization-organizationId-settings-delete',
-    };
-  },
+  middleware: [
+    (to) => {
+      if (to.name === 'organization-organizationId-settings') {
+        return navigateTo({
+          name: 'organization-organizationId-settings-delete',
+          params: {
+            organizationId: to.params.organizationId,
+          },
+        });
+      }
+    },
+  ],
 });
 const links = computed(() => [
   {

@@ -10,11 +10,15 @@
 <script setup lang="ts">
 definePageMeta({
   nonLayoutPadding: true,
-  redirect: () => {
-    return {
-      name: 'account-details',
-    };
-  },
+  middleware: [
+    (to) => {
+      if (to.name === 'account') {
+        return navigateTo({
+          name: 'account-details',
+        });
+      }
+    },
+  ],
 });
 
 const links = computed(() => [
