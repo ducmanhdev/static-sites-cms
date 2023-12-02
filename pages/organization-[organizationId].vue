@@ -5,15 +5,23 @@
 <script setup lang="ts">
 import mqtt from 'mqtt';
 
-definePageMeta({
-  redirect: () => {
-    return {
-      name: 'organization-organizationId-projects',
-    };
-  },
-});
 const route = useRoute();
 const toast = useToast();
+
+definePageMeta({
+  middleware: [
+    (to) => {
+      if (to.name === 'organization-organizationId') {
+        return navigateTo({
+          name: 'organization-organizationId-projects',
+          params: {
+            organizationId: to.params.organizationId,
+          },
+        });
+      }
+    },
+  ],
+});
 
 const connection = {
   host: '192.168.1.109',

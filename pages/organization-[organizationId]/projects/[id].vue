@@ -66,18 +66,27 @@
 <script setup lang="ts">
 import type {MqttClient} from 'mqtt';
 
-definePageMeta({
-  nonLayoutPadding: true,
-  redirect: () => {
-    return {
-      name: 'organization-organizationId-projects-id-dashboard',
-    };
-  },
-});
-
 const toast = useToast();
 const route = useRoute();
 const projectStore = useProjectStore();
+
+definePageMeta({
+  nonLayoutPadding: true,
+  middleware: [
+    (to) => {
+      if (to.name === 'organization-organizationId-projects-id') {
+        return navigateTo({
+          name: 'organization-organizationId-projects-id-dashboard',
+          params: {
+            organizationId: to.params.organizationId,
+            id: to.params.id,
+          },
+        });
+      }
+    },
+  ],
+});
+
 
 const isMenuVisible = ref(false);
 const handleToggleMenu = () => {
