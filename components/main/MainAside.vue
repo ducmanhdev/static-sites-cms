@@ -2,12 +2,12 @@
   <aside
     class="shrink-0 bg-primary dark:bg-gray-900 text-white flex items-center lg:items-stretch lg:flex-col justify-between transition-all py-2 px-6"
     :class="{
-      'lg:w-[260px] lg:p-6': isAsideVisible,
-      'lg:w-[80px] lg:py-6 lg:px-4': !isAsideVisible,
+      'lg:w-[260px] lg:p-6': isMainAsideFull,
+      'lg:w-[80px] lg:py-6 lg:px-4': !isMainAsideFull,
     }"
   >
     <div class="space-y-4">
-      <NuxtLink v-if="isAsideVisible" to="/" class="text-2xl font-bold block text-center">NEWGEN</NuxtLink>
+      <NuxtLink v-if="isMainAsideFull" to="/" class="text-2xl font-bold block text-center">NEWGEN</NuxtLink>
       <UButton v-else to="/" icon="i-mdi-arrow-left" block variant="link" color="white" size="lg" />
       <UVerticalNavigation
         class="hidden lg:block"
@@ -19,8 +19,8 @@
             base: 'w-6 h-6',
             inactive: 'text-inherit',
           },
-          base: isAsideVisible ? undefined : 'justify-center',
-          label: isAsideVisible ? undefined : 'hidden',
+          base: isMainAsideFull ? undefined : 'justify-center',
+          label: isMainAsideFull ? undefined : 'hidden',
         }"
       />
     </div>
@@ -38,7 +38,7 @@
       }"
       @click="handleToggleColorMode"
     >
-      <span v-if="isAsideVisible" class="hidden lg:block line-clamp-1 truncate">
+      <span v-if="isMainAsideFull" class="hidden lg:block line-clamp-1 truncate">
         {{ toggleColorModeButtonAttrs.label }}
       </span>
     </UButton>
@@ -56,7 +56,7 @@
           },
         }"
       >
-        <span v-if="isAsideVisible" class="hidden lg:block line-clamp-1 truncate">{{ authData?.user?.email }}</span>
+        <span v-if="isMainAsideFull" class="hidden lg:block line-clamp-1 truncate">{{ authData?.user?.email }}</span>
       </UButton>
     </UDropdown>
     <UButton
@@ -127,7 +127,7 @@ const { data: authData, signOut } = useAuth();
 const toast = useToast();
 const route = useRoute();
 const generalStore = useGeneralStore();
-const isAsideVisible = computed(() => !route.meta.mainAsideCompact);
+const isMainAsideFull = computed(() => !route.meta.mainAsideCompact);
 
 const topLinks = computed(() => {
   let links;
