@@ -9,6 +9,7 @@
 
 <script setup lang="ts">
 definePageMeta({
+  mainAsideCompact: true,
   nonLayoutPadding: true,
   middleware: [
     (to) => {

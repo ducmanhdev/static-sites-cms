@@ -127,20 +127,7 @@ const { data: authData, signOut } = useAuth();
 const toast = useToast();
 const route = useRoute();
 const generalStore = useGeneralStore();
-const isAsideVisible = computed(() => generalStore.isAsideVisible);
-
-watch(
-  () => route.name,
-  (newRouteName) => {
-    if (newRouteName && newRouteName.toString().startsWith('organization-organizationId-projects-id')) {
-      return generalStore.hideAside();
-    }
-    generalStore.showAside();
-  },
-  {
-    immediate: true,
-  },
-);
+const isAsideVisible = computed(() => !route.meta.mainAsideCompact);
 
 const topLinks = computed(() => {
   let links;

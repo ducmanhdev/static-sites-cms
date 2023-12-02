@@ -71,6 +71,7 @@ const route = useRoute();
 const projectStore = useProjectStore();
 
 definePageMeta({
+  mainAsideCompact: true,
   nonLayoutPadding: true,
   middleware: [
     (to) => {
