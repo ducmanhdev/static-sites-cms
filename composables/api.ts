@@ -168,7 +168,7 @@ type RegisterRequest = {
 
 export const API = {
   getFiles(request: GetFilesRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path', {
+    return $fetch('/api/v1/web_portal/project/project-path', {
       params: {
         id: request.id,
         project_id: request.project_id,
@@ -176,89 +176,89 @@ export const API = {
     });
   },
   createFile(request: CreateFileRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/create-file', {
+    return $fetch('/api/v1/web_portal/project/project-path/create-file', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   uploadFolder(request: UploadFolderRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path-upload/upload-folder', {
+    return $fetch('/api/v1/web_portal/project/project-path-upload/upload-folder', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   uploadFiles(request: UploadFilesRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path-upload/upload-file', {
+    return $fetch('/api/v1/web_portal/project/project-path-upload/upload-file', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   cutPath(request: CutPathRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/cut', {
+    return $fetch('/api/v1/web_portal/project/project-path/cut', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   clonePath(request: ClonePathRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/clone', {
+    return $fetch('/api/v1/web_portal/project/project-path/clone', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   deletePath(request: DeletePathRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/delete', {
+    return $fetch('/api/v1/web_portal/project/project-path/delete', {
       method: 'POST',
       body: request,
     });
   },
   readFile(request: ReadFileRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/read-file', {
+    return $fetch('/api/v1/web_portal/project/project-path/read-file', {
       params: request,
     });
   },
   editFile(request: EditFileRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/edit-file', {
+    return $fetch('/api/v1/web_portal/project/project-path/edit-file', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   renameFile(request: RenameFileRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-path/rename-file', {
+    return $fetch('/api/v1/web_portal/project/project-path/rename-file', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   getListTemplate(request: GetListTemplateRequest) {
-    return useMy$Fetch('/api/v1/web_portal/template/site', {
+    return $fetch('/api/v1/web_portal/template/site', {
       params: request,
     });
   },
   viewTemplate(request: ViewTemplateRequest) {
-    return useMy$Fetch('/api/v1/web_portal/template/site/view', {
+    return $fetch('/api/v1/web_portal/template/site/view', {
       params: {
         id: request.id,
       },
     });
   },
   getListCategory() {
-    return useMy$Fetch('/api/v1/web_portal/category/site/list');
+    return $fetch('/api/v1/web_portal/category/site/list');
   },
   getListProject(request: GetListProjectRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/site', {
+    return $fetch('/api/v1/web_portal/project/site', {
       params: {
         ...request,
       },
     });
   },
   viewProject(request: ViewProjectRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/site/view', {
+    return $fetch('/api/v1/web_portal/project/site/view', {
       params: {
         id: request.id,
       },
     });
   },
   createProject(request: CreateProjectRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/form/create', {
+    return $fetch('/api/v1/web_portal/project/form/create', {
       method: 'POST',
       body: {
         name: request.name,
@@ -268,28 +268,28 @@ export const API = {
     });
   },
   getProjectConfig(request: GetProjectConfigRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/config', {
+    return $fetch('/api/v1/web_portal/project/config', {
       params: {
         project_id: request.project_id,
       },
     });
   },
   getListOrganization(request: GetListOrganizationRequest) {
-    return useMy$Fetch('/api/v1/web_portal/organization/site', {
+    return $fetch('/api/v1/web_portal/organization/site', {
       params: {
         ...request,
       },
     });
   },
   viewOrganization(request: ViewOrganizationRequest) {
-    return useMy$Fetch('/api/v1/web_portal/organization/site/view', {
+    return $fetch('/api/v1/web_portal/organization/site/view', {
       params: {
         id: request.id,
       },
     });
   },
   createOrganization(request: CreateOrganizationRequest) {
-    return useMy$Fetch('/api/v1/web_portal/organization/form/create', {
+    return $fetch('/api/v1/web_portal/organization/form/create', {
       method: 'POST',
       body: {
         name: request.name,
@@ -298,7 +298,7 @@ export const API = {
     });
   },
   deleteOrganization(request: DeleteOrganizationRequest) {
-    return useMy$Fetch('/api/v1/web_portal/organization/form/delete', {
+    return $fetch('/api/v1/web_portal/organization/form/delete', {
       method: 'POST',
       params: {
         id: request.id,
@@ -309,7 +309,7 @@ export const API = {
     });
   },
   getPathCollection(request: GetPathCollectionRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/collection/get-path-collection', {
+    return $fetch('/api/v1/web_portal/project/collection/get-path-collection', {
       params: {
         project_id: request.project_id,
         collection: request.collection,
@@ -317,7 +317,7 @@ export const API = {
     });
   },
   readCollection(request: ReadCollectionRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/collection/read', {
+    return $fetch('/api/v1/web_portal/project/collection/read', {
       params: {
         project_id: request.project_id,
         collection: request.collection,
@@ -326,7 +326,7 @@ export const API = {
     });
   },
   getProjectComponentConfig(request: GetProjectComponentConfigRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-component', {
+    return $fetch('/api/v1/web_portal/project/project-component', {
       params: {
         project_id: request.project_id,
         sub_path: request.sub_path,
@@ -334,7 +334,7 @@ export const API = {
     });
   },
   getPublicAsset(request: GetPublicAssetRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-media/get-public-asset', {
+    return $fetch('/api/v1/web_portal/project/project-media/get-public-asset', {
       params: {
         project_id: request.project_id,
         path: request.path,
@@ -344,14 +344,14 @@ export const API = {
   uploadAsset(request: UploadAssetRequest) {
     return new Promise(async (resolve, reject) => {
       try {
-        const res: any = await useMy$Fetch('/api/v1/web_portal/project/project-media/upload', {
+        const res: any = await $fetch('/api/v1/web_portal/project/project-media/upload', {
           params: {
             project_id: request.project_id,
             path: request.path,
           },
         });
         const { pre_signed_url, url } = res.data;
-        await useMy$Fetch(pre_signed_url, {
+        await $fetch(pre_signed_url, {
           method: 'PUT',
           body: request.file,
           onRequest({ options }) {
@@ -365,7 +365,7 @@ export const API = {
     });
   },
   readLogRealTime(request: ReadLogRealtimeRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-log/show', {
+    return $fetch('/api/v1/web_portal/project/project-log/show', {
       params: {
         id: request.id,
         project_id: request.project_id,
@@ -374,27 +374,27 @@ export const API = {
     });
   },
   editPage(request: EditPageRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/collection/edit', {
+    return $fetch('/api/v1/web_portal/project/collection/edit', {
       method: 'POST',
       body: objectToFormData(request),
     });
   },
   getActivities(request: GetActivitiesRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-activity', {
+    return $fetch('/api/v1/web_portal/project/project-activity', {
       params: {
         ...request,
       },
     });
   },
   getActivity(request: GetActivityRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-activity/view', {
+    return $fetch('/api/v1/web_portal/project/project-activity/view', {
       params: {
         id: request.id,
       },
     });
   },
   getActivityDiff(request: GetActivityDiffRequest) {
-    return useMy$Fetch('/api/v1/web_portal/project/project-activity/diff', {
+    return $fetch('/api/v1/web_portal/project/project-activity/diff', {
       params: {
         id: request.id,
       },
@@ -409,7 +409,7 @@ export const API = {
     }&width=${request.width || 1920}&height=${request.height || 2000}`;
   },
   register(request: RegisterRequest) {
-    return useMy$Fetch('/api/v1/web_portal/user/form/register', {
+    return $fetch('/api/v1/web_portal/user/form/register', {
       method: 'POST',
       body: {
         email: request.email,
@@ -421,7 +421,7 @@ export const API = {
     });
   },
   logout() {
-    return useMy$Fetch('/api/v1/web_portal/user/form/logout', {
+    return $fetch('/api/v1/web_portal/user/form/logout', {
       method: 'POST'
     });
   },
